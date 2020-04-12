@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rock, Paper, Scissors!</title>
+  </head>
+  <body></body>
+  <script>
+    //win loss Counter and alert system
+    let counter = [0, 0];
+    win = () => {
+      counter[0] += 1;
+      alert(`You win! Score Count - You:${counter[0]} Computer: ${counter[1]}`);
+    };
+
+    loss = () => {
+      counter[1] += 1;
+      alert(`You lose! Score Count - You:${counter[0]} Computer: ${counter[1]}`);
+    };
+
+    computerPlay = () => {
+      computerInput = ["rock", "paper", "scissors"];
+      computerSelection = Math.floor(Math.random() * 3);
+      console.log(computerSelection);
+    };
+    //one round of rock paper scissors game.
+    playRound = () => {
+      let input = prompt("Type Rock, Paper, or Scissors!").toLowerCase();
+      console.log(input);
+      computerPlay();
+      if (computerInput[computerSelection] == "rock" && input == "scissors") {
+        loss();
+      } else if (computerInput[computerSelection] == "rock" && input == "paper") {
+        win();
+      } else if (computerInput[computerSelection] == "paper" && input == "scissors") {
+        win();
+      } else if (computerInput[computerSelection] == "paper" && input == "rock") {
+        loss();
+      } else if (computerInput[computerSelection] == "scissors" && input == "paper") {
+        loss();
+      } else if (computerInput[computerSelection] == "scissors" && input == "rock") {
+        win();
+      } else if (computerInput[computerSelection] == input) {
+        alert("It's a tie!");
+      } else {
+        alert("Please type in either 'Rock', 'Paper', or 'Scissors'.");
+      }
+    };
+    //full game. Loop only used.
+    game = () => {
+      let i;
+      for (i = 0; i <= 5; i++) {
+        playRound();
+      }
+    };
+    game();
+  </script>
+</html>
